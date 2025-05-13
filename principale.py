@@ -1,2 +1,2 @@
 print("yo")
-def 
+def amaury (list : tab) ->int
