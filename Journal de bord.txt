@@ -1,0 +1,12 @@
+1) Création du fichier mot.txt
+2) importer le module "random"
+3) Aide de Chat GPT pour prendre un mot dans un fichier et le mettre dans mon code python
+
+        """
+
+        # Ouvre le fichier en mode lecture et utilise comme langage "utf-8"
+        with open("mot.txt", "r", encoding="utf-8") as fichier:
+            # Lit toutes les lignes et enlève les retours à la ligne et les espaces
+             mots = [ligne.strip() for ligne in fichier if ligne.strip()]
+
+        """
