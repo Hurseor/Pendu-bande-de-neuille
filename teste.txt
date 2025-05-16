@@ -1,0 +1,21 @@
+#Mot à saisir pour lancer le programme : "python teste.py"
+mot=["bonjour"]
+dico={}
+
+for i in range(len(mot)-1):
+    print(i)
+    dico={"lettre":mot[i]}
+    print(dico)
+    print("pate a l'eau")
+
+
+"""
+mot=[bonjour]
+lettre=str(input("Quelle est votre mot? :"))
+vie=int(10)
+while vie>0:
+    if lettre in mot:
+        print(f"La lettre {lettre} est dans le mot, il est à la {} position")
+    else:
+        print(" il n'y a pas cette lettre!!")
+        vie-=1"""
