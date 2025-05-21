@@ -10,3 +10,5 @@
              mots = [ligne.strip() for ligne in fichier if ligne.strip()]
 
         """
+4) Création de la boucle pour le dictionnaire
+5) Création de la boucle pour le jeu
