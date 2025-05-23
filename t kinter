@@ -1,0 +1,92 @@
+#Mot à saisir pour lancer le programme : "python tkinter.py"
+#Site - ressources Tkinter : https://python.doctor/page-tkinter-interface-graphique-python-tutoriel
+
+import tkinter as tk
+from tkinter import Menu, messagebox
+import hashlib, pickle, os
+
+# --- Fonctions sécurité compte ---
+def hash_pw(pw):
+    """Permet d'enrigister sécurisement le mot de passe et ça permet
+    de le cacher quand on le rentre"""
+    return hashlib.sha256(pw.encode()).hexdigest()
+
+def charger_comptes():
+    if os.path.exists("comptes.pkl"):
+        with open("comptes.pkl", "rb") as f:
+            return pickle.load(f)
+    return {}
+
+def enregistrer_comptes(comptes):
+    with open("comptes.pkl", "wb") as f:
+        pickle.dump(comptes, f)
+
+# --- Enregistrer une partie liée au compte ---
+def enregistrer_partie(utilisateur):
+    partie = {
+        "mot": "PYTHON",
+        "trouvé": ["P", "O"],
+        "erreurs": 2
+    }
+    with open(f"{utilisateur}_partie.pkl", "wb") as f:
+        pickle.dump(partie, f)
+    print(f"Partie enregistrée pour {utilisateur}.")
+
+# --- Interface de Connexion ---
+def ouvrir_connexion():
+    def se_connecter():
+        user = entry_user.get()
+        pw = entry_pw.get()
+        comptes = charger_comptes()
+        if user in comptes and comptes[user] == hash_pw(pw):
+            messagebox.showinfo("Succès", f"Bienvenue {user} !")
+            enregistrer_partie(user)  # ✅ ENREGISTRE ICI
+            fenetre_connexion.destroy()
+        else:
+            messagebox.showerror("Erreur", "Nom ou mot de passe incorrect.")
+
+    def creer_compte():
+        user = entry_user.get()
+        pw = entry_pw.get()
+        comptes = charger_comptes()
+        if user in comptes:
+            messagebox.showerror("Erreur", "Nom d'utilisateur déjà pris.")
+        else:
+            comptes[user] = hash_pw(pw)
+            enregistrer_comptes(comptes)
+            messagebox.showinfo("Succès", "Compte créé avec succès.")
+            enregistrer_partie(user)  # ✅ ENREGISTRE ICI
+            fenetre_connexion.destroy()
+
+    fenetre_connexion = tk.Toplevel()
+    fenetre_connexion.title("Connexion")
+    fenetre_connexion.geometry("300x180")
+
+    tk.Label(fenetre_connexion, text="Nom d'utilisateur").pack()
+    entry_user = tk.Entry(fenetre_connexion)
+    entry_user.pack()
+
+    tk.Label(fenetre_connexion, text="Mot de passe").pack()
+    entry_pw = tk.Entry(fenetre_connexion, show="*")
+    entry_pw.pack()
+
+    tk.Button(fenetre_connexion, text="Se connecter", command=se_connecter).pack(pady=5)
+    tk.Button(fenetre_connexion, text="Créer un compte", command=creer_compte).pack()
+
+# --- Interface principale ---
+fenetre = tk.Tk()
+fenetre.title("Jeu du pendu")
+fenetre.state("zoomed")
+
+menubar = Menu(fenetre)
+
+menu_fichier = Menu(menubar, tearoff=0)
+menu_fichier.add_command(label="Quitter", command=fenetre.destroy)
+menubar.add_cascade(label="Fichier", menu=menu_fichier)
+
+menu_connexion = Menu(menubar, tearoff=0)
+menu_connexion.add_command(label="Se connecter / Créer un compte", command=ouvrir_connexion)
+menubar.add_cascade(label="Connexion", menu=menu_connexion)
+
+fenetre.config(menu=menubar)
+fenetre.mainloop()
