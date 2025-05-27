@@ -1,0 +1,4 @@
+Mettre : 
+- comment on a fait le code (organisation, choix techniques)
+- decription rapide des fonctions
+- dire comment sont reliées les fonctions entre elles

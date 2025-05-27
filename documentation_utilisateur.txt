@@ -1,0 +1,14 @@
+Mode d'emploi utilisateur :
+- l'utilisateur choisit entre jouer tout seul ou avec quelqu'un d'autre ;
+- s'il sélectionne le mode jouer en solo, il devra deviner en moins de 10 fois le mot sélectionné au hasard ; 
+- s'il sélectionne le mode jouer à deux, son coéquipier devra rentrer un mot qu'il souhaite mais il ne doit contenir ni d'accent, 
+ni de majuscules et ni de caractère spécial (pas de chiffres numériques). L'utilisateur devra deviner ce mot en moins de 10 fois ;
+- pour deviner un mot, il y a deux possibilités : entrer un lettre qui sera validée ou non (les lettres fausses apparaîtrons dans 
+la rubrique "lettres fausses" ; les bonnes lettres apparaîtrons au bon emplacement dans le mot qui est matérialisé par un nombre 
+de tirets définis correspondants au nombre de lettres du mot à deviner) ou bien, deviner directement le mot ; 
+- après avoir deviné le mot, un message apparaîtra pour le confirmer (si le mot n'est pas trouvé au bout des dix vies (une vie est 
+perdue à chaque lettre énoncée fausse), le mot à deviner apparaîtra avec une information disant à l'utilisateur qu'il a perdu). 
+De plus, si l'utilisateur le désire, il peut cliquer sur le bouton "recommencer une partie" (valable qu'en mode "jouer à deux" et 
+si le mot a été deviné que par des lettres) qui relancera donc une nouvelle partie ;
+- l'utilisateur pourra aussi, s'il le souhaite, enregistrer sa partie sur son ordinateur dans l'emplacement qu'il désire. Cette
+fonctionnalité n'est valable que lorsque le mot a été deviné uniquement par la fonctionnalité "lettre" et non pas "mot".
