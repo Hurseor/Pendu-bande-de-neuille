@@ -1,0 +1,24 @@
+JOUR 1 :
+1) Création du fichier mot.txt
+2) importer le module "random"
+3) Aide de Chat GPT pour prendre un mot dans un fichier et le mettre dans mon code python
+
+        """
+
+        # Ouvre le fichier en mode lecture et utilise comme langage "utf-8"
+        with open("mot.txt", "r", encoding="utf-8") as fichier:
+            # Lit toutes les lignes et enlève les retours à la ligne et les espaces
+             mots = [ligne.strip() for ligne in fichier if ligne.strip()]
+
+        """
+
+JOUR 2 :
+1) Continuité du code Python (principale.py)
+2) Création de l'interface graphique (Tkinter) où on peut se connecter et enregistrer son compte
+
+JOUR 3 :
+1) Fin du code Python (principale.py)
+2) Création du mode deux joueurs
+JOUR 4:
+1)  Finition du Tkinter
+2) Rédaction des deux documentations (technique et utilisateur)
